@@ -4,23 +4,17 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-    bool bfs(int i, int V, vector<int> adj[], vector<int>& vis){
-        vis[i]=0;
-        queue<int> q;
-        q.push(i);
-        while(!q.empty()){
-            int a=q.front();
-            q.pop();
-            int col=vis[a];
-            
-            for(auto adjNode : adj[a]){
-                if(vis[adjNode]==-1){
-                    vis[adjNode]=(col^1);
-                    q.push(adjNode);
-                }else{
-                    if(vis[adjNode]==col){
-                        return false;
-                    }
+    bool dfs(int i, int V, vector<int> adj[], vector<int>& vis, int col){
+        vis[i]=col;
+        
+        for(auto adjNode : adj[i]){
+            if(vis[adjNode]==-1){
+                if(!dfs(adjNode,V,adj,vis,col^1)){
+                    return false;
+                }
+            }else{
+                if(vis[adjNode]==col){
+                    return false;
                 }
             }
         }
@@ -32,7 +26,7 @@ public:
 	    vector<int> vis(V, -1);
 	    for(int i=0; i<V; i++){
 	        if(vis[i]==-1){
-	            if(!bfs(i,V,adj,vis)){
+	            if(!dfs(i,V,adj,vis,0)){
 	                return false;
 	            }
 	        }
