@@ -5,34 +5,40 @@ using namespace std;
 // } Driver Code Ends
 class Solution
 {
-    void dfs(int node, vector<int>& vis, stack<int>& s,vector<int> adj[]){
-        vis[node]=1;
-        for(auto adjNode: adj[node]){
-            if(!vis[adjNode]){
-                dfs(adjNode,vis,s,adj);
-            }
-        }
-        s.push(node);
-    }
+    
 	public:
 	//Function to return list containing vertices in Topological order. 
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    // code here
-	    vector<int> vis(V,0);
-	    stack<int> s;
-	    for(int i=0; i<V; i++){
-	        if(!vis[i]){
-	            dfs(i,vis,s,adj);
-	        }
-	    }
-	    
-	    vector<int> ans;
-	    while(!s.empty()){
-	        ans.push_back(s.top());
-	        s.pop();
-	    }
-	    return ans;
+	   vector<int> indegree(V);
+	   for(int i=0; i<V; i++){
+	       for(auto adjNode: adj[i]){
+	           indegree[adjNode]++;
+	       }
+	   }
+	   
+	   queue<int> q;
+	   vector<int> ans;
+	   for(int i=0; i<V; i++){
+	       if(indegree[i]==0){
+	           q.push(i);
+	       }
+	   }
+	   
+	   while(!q.empty()){
+	       int first=q.front();
+	       q.pop();
+	       ans.push_back(first);
+	       for(auto node: adj[first]){
+	           indegree[node]--;
+	           if(indegree[node]==0){
+	               q.push(node);
+	           }
+	       }
+	   }
+	   
+	   return ans;
 	}
 };
 
