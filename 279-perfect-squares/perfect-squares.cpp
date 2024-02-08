@@ -5,9 +5,9 @@ public:
 
         arr[0]=0;
         arr[1]=1;
-        cout<<"asfashjfas"<<endl;
+      
         for(int j=2; j<=n; j++){
-            cout<<j<<endl;
+     
             if(sqrt(j)==ceil(sqrt(j))){
                 arr[j]=1;
                 continue;
