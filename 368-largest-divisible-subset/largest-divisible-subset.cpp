@@ -7,8 +7,6 @@ public:
         vector<vector<int> > v(n);
     
         for(int i=n-1; i>=0; i--){
-            
-            
             int j=-1;
             int including=-1;
             for(j=i+1; j<n; j++){
@@ -39,9 +37,9 @@ public:
         int maxSize=1;
         int index=0;
         
-        int i;
         
-        for(i=0; i<n; i++){
+        
+        for(int i=0; i<n; i++){
             if(v[i].size()>maxSize){
                 maxSize=v[i].size();
                 index=i;
