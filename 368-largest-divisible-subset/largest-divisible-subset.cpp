@@ -33,7 +33,7 @@ public:
             else{
                 v[i]={nums[i]};
             }
-            cout<<v[i].size()<<endl;
+           
         }
    
         int maxSize=1;
