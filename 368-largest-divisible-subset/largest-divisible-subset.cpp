@@ -8,7 +8,7 @@ public:
     
         for(int i=n-1; i>=0; i--){
             
-            cout<<i<<endl;
+            
             int j=-1;
             int including=-1;
             for(j=i+1; j<n; j++){
@@ -25,7 +25,7 @@ public:
             }
             
             if(including!=-1){
-                cout<<"including"<<endl;
+        
                 vector<int> v1=v[including];
                 v1.push_back(nums[i]);
                 v[i]=v1;
@@ -35,13 +35,10 @@ public:
             }
             cout<<v[i].size()<<endl;
         }
-        cout<<"fshgjkdasg"<<endl;
+   
         int maxSize=1;
         int index=0;
-        for(int i=0; i<n; i++){
-            cout<<i<<endl;
-            cout<<v[i].size()<<endl;
-        }
+        
         int i;
         
         for(i=0; i<n; i++){
