@@ -5,37 +5,39 @@ public:
         int n=s.length();
         vector<int> count(26);
         int r=(n+1)/2;
+        int maxCount=0;
+        char maxChar;
         for(int i=0; i<n; i++){
             count[s[i]-'a']++;
             if(count[s[i]-'a']>r){
                 return "";
             }
+            if(count[s[i]-'a']>maxCount){
+                maxChar=s[i];
+                maxCount=count[s[i]-'a'];
+            }
         }
 
-        priority_queue<P, vector<P> > pq;
+        string result=s;
+        int i=0;
+        cout<<count[maxChar-'a']<<endl;
+        while(count[maxChar-'a']>0){
+            result[i]=maxChar;
+            
+            count[maxChar-'a']--;
+            i+=2;
+        }
+        cout<<result<<endl;
         for(char ch='a'; ch<='z'; ch++){
-            if(count[ch-'a']>0){
-                pq.push({count[ch-'a'], ch});
+            while(count[ch-'a']>0){
+                cout<<ch<<" "<<i<<endl;
+                if(i>=n){
+                    i=1;
+                }
+                result[i]=ch;
+                count[ch-'a']--;
+                i+=2;
             }
-        }
-        string result="";
-        while(pq.size()>=2){
-            auto p1=pq.top(); 
-            pq.pop();
-            auto p2=pq.top();
-            pq.pop();
-            result.push_back(p1.second); p1.first--;
-            result.push_back(p2.second); p2.first--;
-            if(p1.first>0){
-                pq.push(p1);
-            }
-            if(p2.first>0){
-                pq.push(p2);
-            }
-        }
-
-        if(!pq.empty()){
-            result.push_back(pq.top().second);
         }
 
         return result;
