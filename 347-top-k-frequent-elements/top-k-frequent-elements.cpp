@@ -7,16 +7,22 @@ public:
         for(int i=0; i<nums.size(); i++){
             mp[nums[i]]++;
         }
+        vector<vector<int>> v(nums.size()+1);
         for(auto&it:mp){
-            pq.push({it.second,it.first});
-            if(pq.size()>k){
-                pq.pop();
-            }
+            int a=it.first;
+            int b=it.second;
+            v[b].push_back(a);
         }
         vector<int> ans;
-        while(!pq.empty()){
-            ans.push_back(pq.top().second);
-            pq.pop();
+        int i=nums.size();
+        for(; i>=0 && k>0; i--){
+            if(v[i].size()==0)
+                continue;
+            while(v[i].size()>0 && k>0){
+                ans.push_back(v[i].back());
+                v[i].pop_back();
+                k--;
+            }
         }
         return ans;
     }
