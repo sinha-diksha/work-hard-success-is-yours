@@ -4,12 +4,10 @@ public:
         if(n<=0){
             return false;
         }
-        if(n==1){
+        int a=n&(n-1);
+        if(a==0){
             return true;
         }
-        if(n%2!=0){
-            return false;
-        }
-        return isPowerOfTwo(n/2);
+        return false;
     }
 };
