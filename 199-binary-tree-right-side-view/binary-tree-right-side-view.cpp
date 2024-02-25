@@ -15,30 +15,26 @@ public:
         if(root==NULL){
             return {};
         }
-       if(root->left==NULL && root->right==NULL){
-           return {root->val};
-        } 
-
-        vector<int> leftSide=rightSideView(root->left);
-        vector<int> rightSide=rightSideView(root->right);
+        queue<TreeNode*> q;
         vector<int> ans;
-        if(leftSide.size()<rightSide.size()){
-            ans.push_back(root->val);
-            for(int i=0; i<rightSide.size(); i++){
-                ans.push_back(rightSide[i]);
+        q.push(root);
+        while(!q.empty()){
+            int n=q.size();
+            TreeNode* node=NULL;
+            while(n--){
+                node=q.front();
+                q.pop();
+                if(node->left!=NULL){
+                    q.push(node->left);
+                }
+                if(node->right!=NULL){
+                    q.push(node->right);
+                }
             }
-        }else{
-            ans.push_back(root->val);
-            int i;
-            for(i=0; i<rightSide.size(); i++){
-                ans.push_back(rightSide[i]);
-            }
-            for(; i<leftSide.size(); i++){
-                ans.push_back(leftSide[i]);
-            }
+
+            ans.push_back(node->val);
         }
 
         return ans;
-
     }
 };
