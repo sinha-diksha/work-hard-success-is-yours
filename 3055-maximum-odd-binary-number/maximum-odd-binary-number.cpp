@@ -7,14 +7,14 @@ public:
                 countOne++;
             }
         }
-        string ans=s;
+        
         for(int i=0; i<s.length(); i++){
-            ans[i]='0';
+            s[i]='0';
         }
         for(int i=0; i<countOne-1; i++){
-            ans[i]='1';
+            s[i]='1';
         }
-        ans[s.length()-1]='1';
-        return ans;
+        s[s.length()-1]='1';
+        return s;
     }
 };
