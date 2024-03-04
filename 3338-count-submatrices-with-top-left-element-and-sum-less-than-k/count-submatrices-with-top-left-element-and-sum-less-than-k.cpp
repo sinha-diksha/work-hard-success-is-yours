@@ -2,18 +2,19 @@ class Solution {
 public:
     int countSubmatrices(vector<vector<int>>& grid, int k) {
         vector<vector<int> > v;
-        for(int i=0; i<grid.size(); i++){
-            vector<int> v1(grid[0].size());
+        int n=grid.size();
+        int m=grid[0].size();
+        for(int i=0; i<n; i++){
+            vector<int> v1(m);
             int sum=0;
-            for(int j=0; j<grid[0].size(); j++){
+            for(int j=0; j<m; j++){
                 sum+=grid[i][j];
                 v1[j]=sum;
             }
             v.push_back(v1);
         }
         int ans=0;
-        int n=grid.size();
-        int m=grid[0].size();
+        
         
         for(int i=1; i<n; i++){
             for(int j=0; j<m; j++){
