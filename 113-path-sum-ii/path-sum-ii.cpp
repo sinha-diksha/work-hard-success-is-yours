@@ -12,7 +12,7 @@
 class Solution {
 public:
     vector<vector<int> > result;
-    void pathSumHelp(TreeNode* root, int targetSum, vector<int> temp, int sum){
+    void pathSumHelp(TreeNode* root, int& targetSum, vector<int> temp, int sum){
         if(root==NULL){
             return;
         }
