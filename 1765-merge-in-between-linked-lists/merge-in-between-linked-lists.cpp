@@ -30,10 +30,7 @@ public:
         }
         del2=node;
         next1=del2->next;
-        cout<<del1->val<<endl;
-        cout<<del2->val<<endl;
-        cout<<prev->val<<endl;
-        cout<<next1->val<<endl;
+      
         ListNode* node2=list2;
         while(node2->next!=NULL){
             node2=node2->next;
