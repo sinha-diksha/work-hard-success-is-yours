@@ -11,7 +11,7 @@ public:
         int n=nums.size();
         while(e<n){
             pro*=nums[e];
-            
+           
           
                 while(pro>=k && s<=e){
                     pro/=nums[s];
