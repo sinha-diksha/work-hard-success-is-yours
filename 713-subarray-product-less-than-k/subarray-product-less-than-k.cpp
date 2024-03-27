@@ -17,8 +17,12 @@ public:
                     pro/=nums[s];
                     s++;
                 } 
-            
+            if(s>e){
+                ans+=0;
+            }
+            else{
             ans+=(e-s+1);
+            }
             e++;
         }
 
