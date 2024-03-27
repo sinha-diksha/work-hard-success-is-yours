@@ -13,7 +13,7 @@ public:
             pro*=nums[e];
             
           
-                while(pro>=k){
+                while(pro>=k && s<=e){
                     pro/=nums[s];
                     s++;
                 } 
