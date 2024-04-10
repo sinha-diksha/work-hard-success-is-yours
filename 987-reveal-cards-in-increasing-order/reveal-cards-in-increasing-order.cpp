@@ -9,18 +9,16 @@ public:
         int j=0;
         while(i<n){
             if(ans[j]==0){
-                if(skip==1){
-                    j=(j+1)%n;
-                    skip^=1;
-                }else{
+               if(skip==0){
                     ans[j]=deck[i];
-                    j=(j+1)%n;
+                    
                     i++;
-                    skip^=1;
+                    
                 }
-            }else{
-                j=(j+1)%n;
+                
+                skip^=1;
             }
+            j=(j+1)%n;
         }
 
         return ans;
