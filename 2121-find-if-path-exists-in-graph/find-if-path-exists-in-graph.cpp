@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool dfs(int n,vector<vector<int>>& v,int source, int destination, vector<int>& visited ){
-        cout<<"dnkaj"<<endl;
+     
         visited[source]=1;
         cout<<source<<endl;
         if(source==destination){
