@@ -18,7 +18,16 @@ public:
     }
 
     int tribonacci(int n) {
-        vector<int> dp(n+1, -1);
-       return tribonacciHelp(n, dp);
+        vector<int> dp(39);
+        dp[0]=0;
+        dp[1]=1;
+        dp[2]=1;
+        for(int i=3; i<=n; i++){
+            int a=dp[i-1];
+            int b=dp[i-2];
+            int c=dp[i-3];
+            dp[i]=a+b+c;
+        }
+       return dp[n];
     }
 };
