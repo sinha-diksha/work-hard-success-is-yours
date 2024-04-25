@@ -8,7 +8,7 @@ public:
         f[s[0]-'a']=0;
         hehe[0]=1;
         for(int i=1; i<n; i++){
-            cout<<i<<endl;
+        
             int maxi=-1;
             int val=s[i]-'a';
             for(int j=0; j<26; j++){
