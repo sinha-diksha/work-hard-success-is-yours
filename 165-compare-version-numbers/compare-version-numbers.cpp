@@ -13,7 +13,7 @@ public:
             v2.push_back(T);
         }
         int n=max(v1.size(), v2.size());
-        cout<<n<<endl;
+        
         for(int i=0; i<n; i++){
             int a;
             int b;
