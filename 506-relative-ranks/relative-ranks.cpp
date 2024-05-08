@@ -13,7 +13,7 @@ public:
         for(int i=0; i<score.size(); i++){
             
             int idx=find(v.begin(), v.end(), score[i])-v.begin();
-            cout<<idx<<endl;
+       
             if(idx==0){
                 ans[i]="Gold Medal";
             }else if(idx==1){
