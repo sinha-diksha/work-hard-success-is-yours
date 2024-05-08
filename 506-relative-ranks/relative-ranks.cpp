@@ -1,8 +1,6 @@
 class Solution {
 public:
     vector<string> findRelativeRanks(vector<int>& score) {
-        priority_queue <int, vector<int>, greater<int>> pq;
-        int k=0;
         vector<int> v;
         for(int i=0; i<score.size(); i++){
             v.push_back(score[i]);
