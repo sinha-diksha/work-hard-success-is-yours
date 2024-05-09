@@ -19,7 +19,7 @@ public:
             }
         }
 
-        cout<<vowelCount<<" "<<consonantCount<<endl;
+        // cout<<vowelCount<<" "<<consonantCount<<endl;
 
         if(vowelCount && consonantCount){
             return true;
