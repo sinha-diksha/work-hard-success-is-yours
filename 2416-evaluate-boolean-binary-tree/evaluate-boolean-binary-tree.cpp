@@ -12,9 +12,7 @@
 class Solution {
 public:
     int helper(TreeNode* root){
-        if(root==NULL){
-            return 0;
-        }
+        
         if(root->left==NULL && root->right==NULL){
             return root->val;
         }
