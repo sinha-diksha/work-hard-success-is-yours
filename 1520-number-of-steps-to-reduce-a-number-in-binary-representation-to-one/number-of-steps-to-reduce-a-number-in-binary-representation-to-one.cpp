@@ -2,7 +2,7 @@ class Solution {
 public:
     int numSteps(string s) {
         int ans=0;
-        int n=s.length();
+      
         
         while(s.length()){
            
