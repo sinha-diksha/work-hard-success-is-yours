@@ -23,12 +23,6 @@ public:
                     else if(s[j]=='0' && carry=='1'){
                         s[j]='1';
                         carry='0';
-                    }else if(s[j]=='0' && carry=='0'){
-                        s[j]='0';
-                        carry='0';
-                    }else if(s[j]='1' && carry=='0'){
-                        s[j]='1';
-                        carry='0';
                     }
                 }
                 if(carry=='1'){
