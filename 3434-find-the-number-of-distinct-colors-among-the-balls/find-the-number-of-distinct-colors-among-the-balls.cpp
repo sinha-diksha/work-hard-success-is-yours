@@ -16,11 +16,11 @@ public:
                 colCount[queries[i][1]]++;
                 mp[queries[i][0]]=queries[i][1];
                 s.insert(queries[i][1]);
-                ans[i]=(s.size());
+                
             }else{
                 if(mp[queries[i][0]]==queries[i][1]){
                     
-                    ans[i]=(s.size());
+                    
                 }else{
                     int a=mp[queries[i][0]];
                     colCount[a]--;
@@ -30,9 +30,10 @@ public:
                     colCount[queries[i][1]]++;
                     s.insert(queries[i][1]);
                     mp[queries[i][0]]=queries[i][1];
-                    ans[i]=(s.size());
+                    
                 }
             }
+            ans[i]=(s.size());
            
         }
 
