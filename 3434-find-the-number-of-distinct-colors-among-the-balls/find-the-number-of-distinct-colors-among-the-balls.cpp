@@ -15,24 +15,25 @@ public:
             if(mp.count(queries[i][0])==0){
                 colCount[queries[i][1]]++;
                 mp[queries[i][0]]=queries[i][1];
-                s.insert(queries[i][1]);
+               
                 
             }else{
-                if(mp[queries[i][0]]==queries[i][1]){
+                if(mp[queries[i][0]]!=queries[i][1]){
                     
                     
-                }else{
+                
                     int a=mp[queries[i][0]];
                     colCount[a]--;
                     if(colCount[a]==0){
                         s.erase(a);
                     }
                     colCount[queries[i][1]]++;
-                    s.insert(queries[i][1]);
+                    
                     mp[queries[i][0]]=queries[i][1];
                     
                 }
             }
+            s.insert(queries[i][1]);
             ans[i]=(s.size());
            
         }
