@@ -18,9 +18,7 @@ public:
             if(t1==t2){
                 return t1;
             }
-            // if(t1==NULL && t2==NULL){
-            //     return NULL;
-            // }
+        
             if(t1==NULL){
                 t1=headB;
             }
