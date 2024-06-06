@@ -15,7 +15,7 @@ public:
             
             auto it=mp.begin();
             int a=it->first;
-            mp[it->first]--;
+            mp[a]--;
             if(mp[a]==0){
                 mp.erase(a);
             }
