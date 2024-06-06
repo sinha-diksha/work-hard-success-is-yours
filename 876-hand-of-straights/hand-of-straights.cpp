@@ -5,7 +5,7 @@ public:
         if(n%groupSize!=0){
             return false;
         }
-        cout<<n<<endl;
+
         map<int,int> mp;
         for(int i=0; i<n; i++){
             mp[hand[i]]++;
