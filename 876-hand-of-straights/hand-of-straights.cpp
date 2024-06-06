@@ -11,7 +11,7 @@ public:
             mp[hand[i]]++;
         }
       
-        while(mp.size()>=groupSize){
+        while(mp.size()){
             
             auto it=mp.begin();
             int a=it->first;
@@ -35,9 +35,6 @@ public:
            
             
         }
-        if(mp.size()==0){
-            return true;
-        }
-        return false;
+        return true;
     }
 };
