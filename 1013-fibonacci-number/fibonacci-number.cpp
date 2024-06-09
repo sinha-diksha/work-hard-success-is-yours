@@ -4,8 +4,16 @@ public:
         if(n==0 || n==1){
             return n;
         }
-        int a=fib(n-1);
-        int b=fib(n-2);
-        return a+b;
+        vector<int> dp(n+1,0);
+        dp[0]=0;
+        dp[1]=1;
+        for(int i=2; i<=n; i++){
+            int a=dp[i-1];
+            int b=dp[i-2];
+            dp[i]=a+b;
+        }
+        return dp[n];
+        
+
     }
 };
