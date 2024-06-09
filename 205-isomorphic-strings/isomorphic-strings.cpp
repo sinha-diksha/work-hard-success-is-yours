@@ -11,7 +11,7 @@ public:
                 }
                 
             }else{
-                if(used[t[i]]==1){
+                if(used[t[i]]){
                     return false;
                 }
                 mp[s[i]]=t[i];
