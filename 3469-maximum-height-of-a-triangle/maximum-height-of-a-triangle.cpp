@@ -75,9 +75,7 @@ public:
     
     }
   }
-  cout << red << " " << blue << endl;
 
-  cout << h1 << " " << h << endl;
   return max(h1, h);
 }
     
