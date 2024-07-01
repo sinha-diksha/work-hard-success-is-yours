@@ -1,38 +1,34 @@
 class Solution {
 public:
-    int result=INT_MIN;
-    int m;
-    void solve(int idx, int n,vector<vector<int>>&  requests, vector<int>& resultant, int count){
+    
+    int ans=INT_MIN;
+    void solve(int idx, int count, vector<vector<int>> & requests, vector<int>& resultant, int n, int m){
         if(idx>=m){
-            bool isZero=true;
             for(int i=0; i<n; i++){
                 if(resultant[i]!=0){
-                    isZero=false;
-                    break;
+                    ans=max(ans, INT_MIN);
+                    return;
                 }
             }
-            if(isZero){
-                result=max(result,count);
-            }
+            ans=max(ans, count);
             return;
+            
         }
 
-        int from=requests[idx][0];
-        int to=requests[idx][1];
-        resultant[from]--;
-        resultant[to]++;
-        solve(idx+1, n, requests, resultant, count+1);
-        resultant[from]++;
-        resultant[to]--;
-        solve(idx+1,n,requests,resultant,count);
-
+        int f=requests[idx][0];
+        int t=requests[idx][1];
+        resultant[f]--;
+        resultant[t]++;
+        solve(idx+1, count+1, requests, resultant, n, m);
+        resultant[f]++;
+        resultant[t]--;
+        solve(idx+1, count, requests, resultant, n, m);
+        
     }
     
     int maximumRequests(int n, vector<vector<int>>& requests) {
-        vector<int> resultant(n,0);
-        int count=0;
-        m=requests.size();
-        solve(0,n,requests, resultant, 0);
-        return result;
+       vector<int> resultant(n);
+       solve(0, 0, requests, resultant, n, requests.size());
+       return ans;
     }
 };
