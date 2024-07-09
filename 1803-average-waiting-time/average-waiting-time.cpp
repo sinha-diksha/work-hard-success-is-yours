@@ -13,9 +13,9 @@ public:
                 wT+=customers[i][1];
                 eT=customers[i][0]+customers[i][1];
             }
-            cout<<wT<<endl;
+    
         }
-        cout<<wT<<endl;
+
         return wT/n;
     }
 };
