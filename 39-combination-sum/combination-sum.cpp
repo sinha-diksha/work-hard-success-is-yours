@@ -2,7 +2,7 @@ class Solution {
     vector<vector<int>> ans;
     void help(vector<int>& candidates, int target, int i, vector<int>& v){
         if(target==0){
-            if(v.size()!=0)
+            // if(v.size()!=0)
                 ans.push_back(v);
             return;
         }
