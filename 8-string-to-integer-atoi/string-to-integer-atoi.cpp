@@ -10,34 +10,25 @@ public:
                 break;
             }
         }
-        bool isNeg=false;
-        if(s[i]=='-'){
-            isNeg=true;
-            i++;
+        s=s.substr(i);
+        int sign=1;
+        if(s[0]=='-'){
+            sign=-1;
         }
-        if(s[i]=='+' && isNeg){
-            return 0;
-        }else if(s[i]=='+'){
-            i++;
-        }
+        i=(s[0]=='+' || s[0]=='-')?1:0;
         long long ans=0;
         while(i<n){
-            if(s[i]>='0' && s[i]<='9'){
-                ans=(ans*10)+(s[i]-'0');
-                if(ans>INT_MAX){
-                    if(isNeg){
-                        return INT_MIN;
-                    }return INT_MAX;
-                }
-            }else{
+            if(s[i]==' ' || !isdigit(s[i])){
                 break;
+            }
+            ans=(ans*10)+(s[i]-'0');
+            if(sign==-1 && (-1*ans)<INT_MIN){
+                return INT_MIN;
+            }else if(sign==1 && ans>INT_MAX){
+                return INT_MAX;
             }
             i++;
         }
-
-        if(isNeg){
-            return -ans;
-        }
-        return ans;
+        return (int) (sign*ans);
     }
 };
