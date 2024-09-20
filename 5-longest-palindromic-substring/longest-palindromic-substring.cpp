@@ -14,11 +14,11 @@ public:
         for(int i=0; i<n-1; i++){
             if(str[i]==str[i+1]){
                 v[i][i+1]=true;
-                if(ans<2){
+        
                     ans=2;
                     s=i;
                     e=i+1;
-                }
+                
             }
         }
         for(int i=n-2; i>=0; i--){
